@@ -4,35 +4,34 @@ import { Link, useHistory} from 'react-router-dom';
 
 const Login = () => {
 
-    const history= useHistory();
-    const [email, setEmail]= useState(' ');
-    const [password, setPassword]= useState(' ');
-    
-const lognUser = async (e) => {
-        e.preventDefault();
+        const history= useHistory();
+        const [email, setEmail]= useState(' ');
+        const [password, setPassword]= useState(' ');
+        
+    const lognUser = async (e) => {
+            e.preventDefault();
 
-       const res = await fetch('/signin', {
-        method: "POST",
-        headers:{
-            "Content-Type" : "application/json"
-        },
+        const res = await fetch('/signin', {
+            method: "POST",
+            headers:{
+                "Content-Type" : "application/json"
+            },
 
-        body: JSON.stringify({
-             email, 
-             password
-        })
-    });
+            body: JSON.stringify({
+                email, 
+                password
+            })
+        });
 
-    const data= await res.json();
+        const data=  res.json();
 
-    if (data.status === 400 || !data){
-        window.alert("Invalid Login");
-    }else{
-        window.alert("successfully Login");
-
-        history.push("/");
-    }
-
+        if (data.status === 401 || !data){
+            window.alert("Invalid Login");
+        }else if(data.status === 200){
+            window.alert("successfully Login");
+            history.push("/");
+        }
+        
 
 
 }   

@@ -23,26 +23,6 @@ const middleware =(req, res, next) =>{
 }
 
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
-
-// app.get('/about', middleware, (req, res) => {
-//     res.send('about me!')
-// })
-
-// app.get('/contact', (req, res) => {
-//     res.send('Contact me!')
-// })
-
-// app.get('/signin', (req, res) => {
-//     res.send('Registration!')
-// })
-
-// app.get('/signup', (req, res) => {
-//     res.send('login!')
-// })
-
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`)
 })
